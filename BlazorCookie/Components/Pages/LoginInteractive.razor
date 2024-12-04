@@ -1,0 +1,44 @@
+﻿@page "/login-interactive"
+@inject NavigationManager NavigationManager
+@inject AuthenticationService AuthService
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@attribute [AllowAnonymous]
+
+<h3>Login</h3>
+
+<p>admin@test.com / test</p>
+<p>user@test.com / test</p>
+
+<EditForm Model="@loginUser" FormName="login-form" OnValidSubmit="LoginAsync">
+    <div>
+        <div class="mb-3">
+            <label class="form-label">ユーザー名</label>
+            <InputText @bind-Value="loginUser.UserName" class="form-control"></InputText>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">パスワード</label>
+            <InputText @bind-Value="loginUser.Password" class="form-control"></InputText>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">ログイン</button>
+</EditForm>
+
+@code {
+    private LoginUser loginUser { get; set; } = new();
+
+    private async Task LoginAsync()
+    {
+        try {
+            var success = await AuthService.LoginAsync(loginUser);
+            if (success)
+            {
+                NavigationManager.NavigateTo("", forceLoad: true);
+            }
+        }
+        catch (Exception ex) {
+            Console.WriteLine($"Error during login: {ex.Message}");
+            throw;
+        }
+    }
+
+}
