@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Server;
 using BlazorCookie.Components;
 using BlazorCookie.Services;
 
@@ -17,7 +15,6 @@ builder.Services
     {
         options.LoginPath = "/login";
     });
-builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
 builder.Services.AddCascadingAuthenticationState();
 
 builder.Services.AddHttpContextAccessor();

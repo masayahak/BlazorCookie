@@ -18,6 +18,7 @@ namespace BlazorCookie.Services
 
             var claims = new List<Claim>();
 
+            // 本来の認証判定はもっと複雑だが、ここではテスト用にシンプルに認証
             if (loginUser.UserName == "admin@test.com" && loginUser.Password == "test")
             {
                 claims.Add(new Claim(ClaimTypes.Name, loginUser.UserName));

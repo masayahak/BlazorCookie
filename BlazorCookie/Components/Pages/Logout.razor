@@ -6,7 +6,7 @@
     protected override async Task OnInitializedAsync()
     {
         await AuthService.LogoutAsync();
-        // ホームページにリダイレクト
+     
         NavigationManager.NavigateTo("", forceLoad: true);
     }
 }

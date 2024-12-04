@@ -23,8 +23,15 @@
             <a href="/logout">LogOut</a>
         </Authorized>
         <NotAuthorized>
-            <p>ログインしてください。</p>
-            <a href="/login">Login</a>
+            <div class="mb-3">
+                <p>ログインしてください。</p>
+                <a href="/login">Login</a>
+            </div>
+
+            <div class="mb-3">
+                <p>テスト用：InteractiveServerのフォームではEXCEPTIONが発生する</p>
+                <a href="/login-interactive">Login - InteracticeServer</a>
+            </div>
         </NotAuthorized>
     </AuthorizeView>
 </div>
