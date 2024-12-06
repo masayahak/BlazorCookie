@@ -13,7 +13,7 @@ namespace BlazorCookie.Services
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
-        public async Task<bool> LoginAsync(LoginUser loginUser)
+        public async Task<bool> LoginAsync(LoginModel loginUser)
         {
 
             var claims = new List<Claim>();
@@ -55,7 +55,7 @@ namespace BlazorCookie.Services
             await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
     }
-    public class LoginUser
+    public class LoginModel
     {
         public string UserName { get; set; } = "";
         public string Password { get; set; } = "";
