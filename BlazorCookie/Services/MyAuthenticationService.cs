@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace BlazorCookie.Services
 {
-    public class AuthenticationService
+    public class MyAuthenticationService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthenticationService(IHttpContextAccessor httpContextAccessor)
+        public MyAuthenticationService(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }

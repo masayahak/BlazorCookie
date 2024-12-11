@@ -18,7 +18,7 @@ builder.Services
 builder.Services.AddCascadingAuthenticationState();
 
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<MyAuthenticationService>();
 // -------------------------------------------------------
 
 // Ú×‚ÈƒGƒ‰[‚ğ—LŒø‰»
